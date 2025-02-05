@@ -1,9 +1,27 @@
 ﻿const apiUrl = "https://api.jsoning.com/mock/public/products";
+var products;
 
+/** Response objects format
+{
+    "id": "1",
+    "name": "Wireless Mouse",
+    "description": "Ergonomic wireless mouse with adjustable DPI settings and long battery life.",
+    "price": 29.99,
+    "category": "Peripherals",
+    "stock": 150,
+    "sku": "WMOUSE-001",
+    "image_url": "https://example.com/images/wirelessmouse.jpg",
+    "rating": {
+        "rate": 4.5,
+        "count": 200
+    }
+} 
+*/
 function GetProducts() {
 	fetch(apiUrl)
 		.then(response => response.json())
-		.then(data => {
+		.then(result => products = result, () => products = "Product data unavailable");
+		/* .then(data => {
 			console.log(data);
 			let output = '<h2>Products</h2>';
 			data.forEach(function (product) {
@@ -15,9 +33,10 @@ function GetProducts() {
 			`;
 			});
 			document.getElementById('output').innerHTML = output;
-		});
+		}); */
 }
 
+// For curl requests
 //function GetSections() {
 
 //	//const data = JSON.stringify({
