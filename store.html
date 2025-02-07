@@ -8,7 +8,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" >
     <link href="css/custom_BS.css" rel="stylesheet" >
 </head>
-<body class="d-flex flex-column min-vh-100 bg-dark" onpageshow="GetProducts()">
+<body class="d-flex flex-column min-vh-100 bg-dark">
 	<header>
 		<div>
 			<img id="logo" src="logo.png" alt="Company logo" />
@@ -25,7 +25,7 @@
 			</div>
 		</nav>
 	</header>
-	<main class="flex-shrink-0" style="height: 2000px">
+	<main class="flex-shrink-0 flex-fill" >
 		<div id="shopdiv" class="container">
 			<div id="shopPlaceholder">
 				<h2>Loading products...</h2>
@@ -48,5 +48,8 @@
 	</footer>-->
 	<script src="js/JavaScript.js"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript">
+		GetProducts();
+	</script>
 </body>
 </html>
