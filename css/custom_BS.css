@@ -1,3 +1,12 @@
 ﻿.nav-item {
 	margin: 1rem 0 1rem 2rem;
 }
+
+.nav {
+	margin: 0 0 0 10rem;
+}
+
+#logo {
+	width: 10rem;
+	margin: 0;
+}
