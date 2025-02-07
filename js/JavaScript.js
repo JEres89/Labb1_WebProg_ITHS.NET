@@ -18,22 +18,31 @@ var products;
 } 
 */
 function GetProducts() {
+	if (!products) {
+
 	fetch(apiUrl)
 		.then(response => response.json())
-		.then(result => products = result, () => products = "Product data unavailable");
-		/* .then(data => {
-			console.log(data);
-			let output = '<h2>Products</h2>';
-			data.forEach(function (product) {
-				output += `
-				<div>
-					<h3>${product.name}</h3>
-					<p>${product.description}</p>
-				</div>
-			`;
-			});
-			document.getElementById('output').innerHTML = output;
-		}); */
+		.then(result => products = result, () => products = "Product data unavailable")
+		.then(() => ShowProducts());
+	}
+	else {
+		ShowProducts();
+	}
+}
+
+function ShowProducts(products: []) {
+	if (products === "Product data unavailable") {
+		let error = document.createElement("p");
+		error.innerHTML = products;
+		document.getElementById("shopdiv").innerHTML = error;
+	}
+	else {
+		for (var i = 0; i < products.length; i++) {
+			let product = products[i];
+			let productDiv = document.createElement("div");
+			productDiv.id
+		}
+	}
 }
 
 // For curl requests
