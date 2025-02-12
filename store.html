@@ -10,21 +10,8 @@
 </head>
 <body class="d-flex flex-column min-vh-100 bg-dark">
 	<header>
-		<div>
-			<img id="logo" src="logo.png" alt="Company logo" />
-		</div>
-		<nav class="nav bg-gradient fixed-top nav-pills">
-			<div class="nav-item">
-				<a class="nav-link" href="index.html">Home</a>
-			</div>
-			<div class="nav-item">
-				<a class="nav-link" href="about.html">About Us</a>
-			</div>
-			<div class="nav-item">
-				<a class="nav-link active" href="store.html">Store</a>
-			</div>
-		</nav>
 	</header>
+
 	<main class="flex-shrink-0 flex-fill" >
 		<div id="shopdiv" class="container">
 			<div id="shopPlaceholder">
@@ -34,21 +21,15 @@
 	</main>
 
 	<footer class="footer mt-auto py-3 bg-dark-subtle">
-		<div class="container">
+		<div class="container ">
 			<span class="text-muted">Place sticky footer content here.</span>
 		</div>
 	</footer>
-	<!--<main class="flex-shrink-0">
 
-	</main>
-	<footer class="footer mt-auto bg-dark-subtle ">
-		<div class="container">
-			<span class="text-muted">Place sticky footer content here.</span>
-		</div>
-	</footer>-->
 	<script src="js/JavaScript.js"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script type="text/javascript">
+		LoadNav('navStore');
 		GetProducts();
 	</script>
 </body>
