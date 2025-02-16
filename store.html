@@ -12,15 +12,56 @@
 	<header>
 	</header>
 
-	<main class="flex-shrink-0 flex-fill" >
+	<main class="flex-shrink-0 flex-fill">
 		<div id="shopdiv" class="container">
 			<div id="shopPlaceholder">
 				<h2>Loading products...</h2>
 			</div>
+			<!--<div class="modal fade " id="product${product.id}-modal" aria-hidden="true" aria-labelledby="product${product.id}-label" tabindex="-1">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content text-bg-light">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5 " id="product${product.id}-label">${product.name}</h1>
+						<span class="${productElementClasses[" category"]}">Category: ${product.category}</span>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<div class="${productElementClasses[" info"]}">
+							<p class="${productElementClasses[" description"]}">${product.description}</p>
+							<span class="${productElementClasses[" rating"]}">Rating: ${product.rating.rate} (${product.rating.count} reviews)</span>
+							<div class="col-12 row align-items-center">
+								<p class="${productElementClasses[" stock"]}">Stock: ${product.stock}</p>
+								<p class="${productElementClasses[" price"]}">Price: $${product.price}</p>
+								<button class="${productElementClasses[" tocart"]}" onclick="AddToCart(${product.id})">Add to Cart</button>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="product${product.id}" role="button" class="product row " data-bs-target="#product1-modal" data-bs-toggle="modal">
+			<img src="./res/${(new String(product.name)).replace(" ", "_")}.jpg" alt="image of ${product.name}" class="${productElementClasses["image"]}">
+			<div class=" col-9">
+				<h3 class="">${product.name}</h3>
+				<p>Rating: ${product.rating.rate} (${product.rating.count} reviews)</p>
+				<h4>Price: $${product.price}</h4>-->
+			<!--<span class="float-end col-auto">Category: Peripherals</span>
+		<p class="float-start col-12">Ergonomic wireless mouse with adjustable DPI settings and long battery life.</p>
+		<span class="float-start col-12 col-md-6">Rating: 4.5 (200 reviews)</span>
+		<div class="col-12 row align-items-center">
+			<span class="text-center col-4 d-inline">Stock: 150</span>
+			<span class="text-center col-4 d-inline">Price: $29.99</span>
+			<button class="btn btn-primary col-4 float-end" onclick="AddToCart(1)">Add to Cart</button>
+		</div>-->
+			<!--</div>
+		</div>-->
 		</div>
 	</main>
 
-	<footer class="footer mt-auto py-3 bg-dark-subtle">
+	<footer class="footer mt-auto py-3 bg-dark-subtle m-0">
 		<div class="container ">
 			<span class="text-muted">Place sticky footer content here.</span>
 		</div>
