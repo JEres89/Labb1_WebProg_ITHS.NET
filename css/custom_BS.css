@@ -1,18 +1,24 @@
 ﻿body {
+	padding: 10rem 0 0 0;
 	color: #ffffff;
 }
 
 .nav-item {
-	margin: 1rem 0 1rem 2rem;
+	margin: auto 0 1rem 2rem;
 }
 
 .nav {
-	margin: 0 0 0 10rem;
+	height: 10rem;
+	margin: 0;
 }
 
 #logo {
-	width: 10rem;
-	margin: 0;
+	height: 9rem;
+	margin: auto 0;
+}
+#cart {
+	height: 20rem;
+	top: 10rem;
 }
 
 .product {

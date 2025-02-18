@@ -2,11 +2,9 @@
 var products;
 var productsUnavailable;
 
-const nav = 
-`<div>
-	<img id = "logo" src = "logo.png" alt = "Company logo" />
-</div>
-	<nav class="nav bg-gradient fixed-top nav-pills">
+const nav = `
+	<nav class="nav bg-dark bg-gradient fixed-top nav-pills">
+		<img id = "logo" src = "logo.png" alt = "Company logo" />
 		<div class="nav-item">
 			<a id="navHome" target="_parent" class="nav-link" href="index.html">Home</a>
 		</div>
@@ -118,17 +116,19 @@ function ShowProducts() {
 			let product = products[i];
 			let container = CreateModal(product);
 			store.appendChild(container);
-			let productDiv = document.createElement("div");
-			productDiv.id = `product${product.id}`;
-			productDiv.className = "product";
+			let productDiv = CreateElement("div", {
+				id: `product${product.id}`,
+				className: "product row",
+				role: "button",
+				"data-bs-target": `#product${product.id}-modal`,
+				"data-bs-toggle": "modal"
+			});	//document.createElement("div");
 			productDiv.innerHTML =
-			`<div id="product${product.id}" role="button" class="product row " data-bs-target="#product${product.id}-modal" data-bs-toggle="modal">
-				<img src="./res/${(new String(product.name)).replace(" ", "_")}.jpg" alt="image of ${product.name}" class="${productElementClasses["image"]}">
-				<div class="${productElementClasses["info"]}">
-					<h3 class="">${product.name}</h3>
-					<p>Rating: ${product.rating.rate} (${product.rating.count} reviews)</p>
-					<b>Price: $${product.price}</b>
-				</div>
+			`<img src="./res/${(new String(product.name)).replace(" ", "_")}.jpg" alt="image of ${product.name}" class="${productElementClasses["image"]}">
+			<div class="${productElementClasses["info"]}">
+				<h3 class="">${product.name}</h3>
+				<p>Rating: ${product.rating.rate} (${product.rating.count} reviews)</p>
+				<b>Price: $${product.price}</b>
 			</div>`;
 			//`<img class="${productElementClasses["image"]}" src="./res/${(new String(product.name)).replace(" ", "_")}.jpg" alt="image of ${product.name}" />
 			//<div class="${productElementClasses["info"]}">
