@@ -2,11 +2,9 @@
 var products;
 var productsUnavailable;
 
-const nav = 
-`<div>
-	<img id = "logo" src = "logo.png" alt = "Company logo" />
-</div>
-	<nav class="nav bg-gradient fixed-top nav-pills">
+const nav = `
+	<nav class="nav bg-dark bg-gradient fixed-top nav-pills">
+		<img id = "logo" src = "logo.png" alt = "Company logo" />
 		<div class="nav-item">
 			<a id="navHome" target="_parent" class="nav-link" href="index.html">Home</a>
 		</div>
@@ -118,28 +116,20 @@ function ShowProducts() {
 			let product = products[i];
 			let container = CreateModal(product);
 			store.appendChild(container);
-			let productDiv = document.createElement("div");
-			productDiv.id = `product${product.id}`;
-			productDiv.className = "product";
+			let productDiv = CreateElement("div", {
+				id: `product${product.id}`,
+				className: "product row",
+				role: "button",
+				"data-bs-target": `#product${product.id}-modal`,
+				"data-bs-toggle": "modal"
+			});
 			productDiv.innerHTML =
-			`<div id="product${product.id}" role="button" class="product row " data-bs-target="#product${product.id}-modal" data-bs-toggle="modal">
-				<img src="./res/${(new String(product.name)).replace(" ", "_")}.jpg" alt="image of ${product.name}" class="${productElementClasses["image"]}">
-				<div class="${productElementClasses["info"]}">
-					<h3 class="">${product.name}</h3>
-					<p>Rating: ${product.rating.rate} (${product.rating.count} reviews)</p>
-					<b>Price: $${product.price}</b>
-				</div>
+			`<img src="./res/${(new String(product.name)).replace(" ", "_")}.jpg" alt="image of ${product.name}" class="${productElementClasses["image"]}">
+			<div class="${productElementClasses["info"]}">
+				<h3 class="">${product.name}</h3>
+				<p>Rating: ${product.rating.rate} (${product.rating.count} reviews)</p>
+				<b>Price: $${product.price}</b>
 			</div>`;
-			//`<img class="${productElementClasses["image"]}" src="./res/${(new String(product.name)).replace(" ", "_")}.jpg" alt="image of ${product.name}" />
-			//<div class="${productElementClasses["info"]}">
-			//	<h3>${product.name}</h3>
-			//	<p class="${productElementClasses["description"]}">${product.description}</p>
-			//	<p class="${productElementClasses["price"]}">Price: $${product.price}</p>
-			//	<p class="${productElementClasses["category"]}">Category: ${product.category}</p>
-			//	<p class="${productElementClasses["stock"]}">Stock: ${product.stock}</p>
-			//	<p class="${productElementClasses["rating"]}">Rating: ${product.rating.rate} (${product.rating.count} reviews)</p>
-			//	<button class="${productElementClasses["tocart"]}" onclick="AddToCart(${product.id})">Add to Cart</button>
-			//</div>`;
 			store.appendChild(productDiv);
 		}
 	}
@@ -159,11 +149,6 @@ function CreateModal(product) {
 			<div class="modal-body">
 				<p class="${productElementClasses["description"]}">${product.description}</p>
 				<span class="${productElementClasses["rating"]}">Rating: ${product.rating.rate} (${product.rating.count} reviews)</span>
-				<!--<div class="col-12 row align-items-center">
-					<span class="${productElementClasses["stock"]}">Stock: ${product.stock}</span>
-					<span class="${productElementClasses["price"]}">Price: $${product.price}</span>
-					<button class="${productElementClasses["tocart"]}" onclick="AddToCart(${product.id})">Add to Cart</button>
-				</div>-->
 			</div>
 			<div class="${productElementClasses["footer"]}">
 				<span class="${productElementClasses["stock"]}">Stock: ${product.stock}</span>
@@ -173,32 +158,6 @@ function CreateModal(product) {
 		</div>
 	</div>
 </div>`;
-	//`
-	//<div class="modal fade" id="product${product.id}-modal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-	//	<div class="modal-dialog modal-dialog-centered">
-	//		<div class="modal-content">
-	//			<div class="modal-header">
-	//				<h1 class="modal-title fs-5" id="exampleModalToggleLabel">${product.name}</h1>
-	//				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-	//			</div>
-	//			<div class="modal-body">
-	//				<img class="${productElementClasses["image"]}" src="./res/${(new String(product.name)).replace(" ", "_")}.jpg" alt="image of ${product.name}" />
-	//				<div class="${productElementClasses["info"]}">
-	//					<p class="${productElementClasses["description"]}">${product.description}</p>
-	//					<p class="${productElementClasses["price"]}">Price: $${product.price}</p>
-	//					<p class="${productElementClasses["category"]}">Category: ${product.category}</p>
-	//					<p class="${productElementClasses["stock"]}">Stock: ${product.stock}</p>
-	//					<p class="${productElementClasses["rating"]}">Rating: ${product.rating.rate} (${product.rating.count} reviews)</p>
-	//				</div>
-	//			</div>
-	//			<div class="modal-footer">
-	//				<button class="float-start ${productElementClasses["tocart"]}" onclick="AddToCart(${product.id})">Add to Cart</button>
-	//			</div>
-	//		</div>
-	//	</div>
-	//</div>
-
-	//`;
 	return productContainer;
 }
 
