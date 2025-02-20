@@ -1,26 +1,107 @@
 ﻿body {
 	padding: 10rem 0 0 0;
-	color: #ffffff;
+	background-color: var(--bs-dark-bg-subtle) !important;
+	flex-direction: column !important;
+	min-height: 100vh !important;
+	display: flex !important;
+	overflow-y: scroll;
+	/*@apply(d-flex);
+	@apply(flex-column);
+	@apply(min-vh-100);
+	@apply(bg-dark-subtle);*/
+}
+
+.nav {
+	--bs-nav-pills-link-active-color: black;
+	--bs-nav-pills-link-active-bg: ghostwhite;
+	height: 10rem;
+	margin: 0;
 }
 
 .nav-item {
 	margin: auto 0 1rem 2rem;
 }
-
-.nav {
-	height: 10rem;
-	margin: 0;
+.nav-link {
+	color: white;
+	background-color: dimgray;
 }
+	.nav-link:hover {
+		color: bisque;
+		background-color: slategray;
+	}
 
 #logo {
 	height: 9rem;
 	margin: auto 0;
 }
-#cart {
-	height: 20rem;
-	top: 10rem;
+
+#shopdiv {
+	width: 80vw;
+	margin: 1rem 0 0 10vw;
+	min-height: 100vh;
 }
 
 .product {
-
+	min-height: calc(220px + 1rem);
+	margin-bottom: 1rem;
+	display: flex;
+	padding: 0.25rem;
+	background-color: var(--bs-body-bg);
+	border: var(--bs-border-width) solid black;
+	border-radius: var(--bs-border-radius);
 }
+	.product img {
+		height: 100%;
+	}
+
+#cart {
+	min-height: 10rem;
+	max-width: 30vw;
+	top: 10rem;
+	margin: 0.2rem 0.2rem 0 0;
+	padding: 0.25rem !important;
+	border: var(--bs-border-width) solid black;
+	border-radius: var(--bs-border-radius) !important;
+	right: 0 !important;
+	position: fixed !important;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: stretch;
+}
+.cartProduct {
+	display: flex !important;
+	align-items: center;
+}
+	.cartProduct:hover {
+		background-color: bisque;
+	}
+
+#cartFooter {
+	align-items: center;
+	display: inline-flex;
+	padding-top: 0.25rem !important;
+}
+#cartSum {
+	margin-right: auto !important;
+	display: inline !important;
+}
+.cart-item-price {
+	margin: 0 0.2rem 0 auto;
+	display: inline-block !important;
+	vertical-align: middle;
+}
+.cart-product-name {
+	margin: 0 0.6rem 0 0;
+	display: inline-block !important;
+}
+.cart-bin {
+	width: 1rem !important;
+	display: inline !important;
+	flex-shrink: 0 !important;
+}
+
+/*.product {
+
+}*/
