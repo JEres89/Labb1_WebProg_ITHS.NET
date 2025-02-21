@@ -9,8 +9,7 @@ const trashIcon = "M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.
 const currencySymbol = "$";
 
 const modalCSS = {
-	"image": "",
-	"info": "ms-3 mt-2",
+	"info": "ms-3 my-2",
 	"description": "float-start col-12",
 	"category": "float-end col-auto ",
 	"rating": "float-start col-12 col-md-6",
@@ -73,7 +72,7 @@ async function ShowProducts() {
 				"data-bs-toggle": "modal"
 			});
 			productDiv.innerHTML =
-			`<img src="./res/${(new String(product.name)).replace(" ", "_")}.jpg" alt="image of ${product.name}" class="${modalCSS["image"]}">
+			`<img src="./res/${(new String(product.name)).replace(" ", "_")}.jpg" alt="image of ${product.name}">
 			<div class="${modalCSS["info"]}">
 				<h3 class="">${product.name}</h3>
 				<p>Rating: ${product.rating.rate} (${product.rating.count} reviews)</p>

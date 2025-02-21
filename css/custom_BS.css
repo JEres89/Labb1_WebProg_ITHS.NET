@@ -4,6 +4,7 @@
 	flex-direction: column !important;
 	display: flex !important;
 	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 .nav {
@@ -77,6 +78,8 @@ article {
 	border-radius: var(--bs-border-radius);
 }
 	.product img {
+		width: 30%;
+		max-width: 220px;
 		height: 100%;
 	}
 
@@ -126,4 +129,62 @@ article {
 	width: 1rem !important;
 	display: inline !important;
 	flex-shrink: 0 !important;
+}
+
+
+h1 {
+	font-size: 1.375rem;
+}
+
+h2 {
+	font-size: 1.3rem;
+}
+
+h3 {
+	font-size: 1.275rem;
+}
+
+@media (min-width: 576px) {
+	h1 {
+		font-size: 1.5rem;
+	}
+
+	h2 {
+		font-size: 1.375rem;
+	}
+
+	h3 {
+		font-size: 1.3rem;
+	}
+	.product img {
+		height: 100%;
+	}
+}
+
+@media (min-width: 768px) {
+	h1 {
+		font-size: 1.75rem;
+	}
+
+	h2 {
+		font-size: 1.5rem;
+	}
+
+	h3 {
+		font-size: 1.35rem;
+	}
+}
+
+@media (min-width: 992px) {
+	h1 {
+		font-size: 2rem;
+	}
+
+	h2 {
+		font-size: 1.75rem;
+	}
+
+	h3 {
+		font-size: 1.5rem;
+	}
 }
