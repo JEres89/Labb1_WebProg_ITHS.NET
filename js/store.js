@@ -72,7 +72,7 @@ async function ShowProducts() {
 				"data-bs-toggle": "modal"
 			});
 			productDiv.innerHTML =
-			`<img src="./res/${(new String(product.name)).replace(" ", "_")}.jpg" alt="image of ${product.name}">
+			`<img src="./res/${(new String(product.name)).replace(" ", "_").toLowerCase()}.jpg" alt="image of ${product.name}">
 			<div class="${modalCSS["info"]}">
 				<h3 class="">${product.name}</h3>
 				<p>Rating: ${product.rating.rate} (${product.rating.count} reviews)</p>
