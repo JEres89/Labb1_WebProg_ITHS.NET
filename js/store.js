@@ -5,19 +5,6 @@ var loading;
 GetProducts();
 var cart = [];
 
-const nav = `
-	<nav class="nav bg-dark bg-gradient fixed-top nav-pills">
-		<img id="logo" src="logo.png" alt="Company logo" />
-		<div class="nav-item">
-			<a id="navHome" target="_parent" class="nav-link" href="index.html">Home</a>
-		</div>
-		<div class="nav-item">
-			<a id="navAbout" target="_parent" class="nav-link" href="about.html">About Us</a>
-		</div>
-		<div class="nav-item">
-			<a id="navStore" target="_parent" class="nav-link" href="store.html">Store</a>
-		</div>
-	</nav>`;
 const trashIcon = "M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5";
 const currencySymbol = "$";
 
@@ -32,55 +19,6 @@ const modalCSS = {
 	"tocart": "btn btn-primary col-4 float-end m-0",
 	"footer": "modal-footer col-12 row align-items-center"
 }
-function LoadNav(source) {
-	let header = document.body.firstElementChild;
-	header.innerHTML = nav;
-	
-	header.querySelector(`#${source}`).classList.add("active");
-}
-
-//Me hoping I could have a reusable nav element
-/** 
-const headerNav = [];
-
-function LoadNav(source) {
-	if (headerNav.length === 0) {
-		let div = document.createElement("div");
-		let img = document.createElement("img");
-		img.src = "logo.png";
-		img.alt = "Company logo";
-		img.id = "logo";
-		div.appendChild(img);
-		headerNav.push(div);
-
-		let nav = document.createElement("nav");
-		nav.className = "nav bg-gradient fixed-top nav-pills";
-
-		let links = [["navHome", "index", "Home"], ["navAbout", "about", "About Us"], ["navStore", "store", "Store"]];
-		for (let i = 0; i < links.length; i++) {
-			let item = document.createElement("div");
-			item.className = "nav-item";
-			let itemLink = document.createElement("a");
-			itemLink.id = links[i][0];
-			itemLink.target = "_parent";
-			itemLink.className = "nav-link";
-			itemLink.href = `${links[i][1]}.html`;
-			itemLink.innerHTML = links[i][2];
-			item.appendChild(itemLink);
-			nav.appendChild(item);
-		}
-		headerNav.push(nav);
-	}
-
-	let header = document.body.firstElementChild;
-	if (header.hasChildNodes()) {
-		header.innerHTML = "";
-	}
-	header.appendChild(headerNav[0]);
-	header.appendChild(headerNav[1]);
-
-	header.querySelector(`#${source}`).classList.add("active");
-}*/
 
 /** Response objects format
 {
@@ -99,29 +37,25 @@ function LoadNav(source) {
 }
 */
 function GetProducts() {
-	//let response;
 	if (!products) {
 		loading = fetch(apiUrl)
 			.then(response => response.json())
 			.then(result => { products = result; productsUnavailable = null; }, () => productsUnavailable = "Product data unavailable");
-		//.then(() => response = ShowProducts());
 	}
 	else {
-		//ShowProducts();
+		loading = null;
 	}
-	//return response;
 }
 
 async function ShowProducts() {
 	if (loading) {
 		await loading;
-		//await loading;
+		loading = null;
 	}
 	else {
 		return "nope";
 	}
 	let store = document.getElementById("main-content");
-	//let productlist = [];
 	if (productsUnavailable) {
 		store.innerHTML = `<p>${productsUnavailable}</p>`;
 	}
@@ -131,7 +65,6 @@ async function ShowProducts() {
 			let product = products[i];
 			let container = CreateModal(product);
 			store.appendChild(container);
-			//productlist.push(container);
 			let productDiv = CreateElement("div", {
 				"id": `product${product.id}`,
 				"class": "product",
@@ -147,10 +80,8 @@ async function ShowProducts() {
 				<b>Price: $${product.price}</b>
 			</div>`;
 			store.appendChild(productDiv);
-			//productlist.push(productDiv);
 		}
 	}
-	//return productlist;
 }
 
 function CreateModal(product) {
@@ -180,18 +111,12 @@ function CreateModal(product) {
 }
 
 function CreateElement(type, params) {
-	//document.
 	let element = document.createElement(type, );
 	if (element instanceof HTMLUnknownElement) {
 		element = document.createElementNS(params["xmlns"], type);
 	}
 	for (let [key, value] of Object.entries(params)) {
-		//if (Object.hasOwn(element, key)) {
-		//	element[key] = value;
-		//}
-		//else {
 		element.setAttribute(key, value);
-		//}
 	}
 	return element;
 }
@@ -205,7 +130,7 @@ function AddToCart(id) {
 
 	let cartDiv = document.getElementById("cart");
 	let sumDiv = document.getElementById("cartSum");
-	//cartDiv.removeChild(sumDiv);
+
 	let productDiv;
 
 	if (cart.indexOf(product) > -1) {
@@ -233,10 +158,8 @@ function AddToCart(id) {
 	});
 	svg.innerHTML = `\n<path d="${trashIcon}"/>`;
 	productDiv.appendChild(svg);
-	//alert(`Added ${product.name} to cart`);
 	cartDiv.firstElementChild.appendChild(productDiv);
 	sumDiv.innerHTML = `Total: $${CalculateSum()}`;
-	//cartDiv.appendChild(sumDiv);
 	cartDiv.hidden = false;
 }
 
@@ -264,28 +187,3 @@ function CalculateSum() {
 	}
 	return sum.toFixed(2);
 }
-
-// For curl requests
-//function GetSections() {
-
-//	//const data = JSON.stringify({
-//	//	'sections': [
-//	//		'Business',
-//	//		'Sports',
-//	//		'Technology'
-//	//	]
-//	//});
-//	const data = '{"sections": ["Business","Sports","Technology"]}';
-
-//	let xhr = new XMLHttpRequest();
-//	//xhr.withCredentials = true;
-//	xhr.open('POST', 'https://ok.surf/api/v1/news-section');
-//	xhr.setRequestHeader('accept', 'application/json');
-//	xhr.setRequestHeader('Content-Type', 'application/json');
-
-//	xhr.onload = function () {
-//		console.log(xhr.response);
-//	};
-
-//	xhr.send(data);
-//}
