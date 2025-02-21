@@ -7,7 +7,7 @@ var cart = [];
 
 const nav = `
 	<nav class="nav bg-dark bg-gradient fixed-top nav-pills">
-		<img id = "logo" src = "logo.png" alt = "Company logo" />
+		<img id="logo" src="logo.png" alt="Company logo" />
 		<div class="nav-item">
 			<a id="navHome" target="_parent" class="nav-link" href="index.html">Home</a>
 		</div>
@@ -120,7 +120,7 @@ async function ShowProducts() {
 	else {
 		return "nope";
 	}
-	let store = document.getElementById("shopdiv");
+	let store = document.getElementById("main-content");
 	//let productlist = [];
 	if (productsUnavailable) {
 		store.innerHTML = `<p>${productsUnavailable}</p>`;
